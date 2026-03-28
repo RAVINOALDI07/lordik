@@ -1,0 +1,13 @@
+RewriteEngine On
+Options -Indexes
+
+# Block direct access ke storage
+RewriteRule ^storage/ - [F,L]
+
+# Route semua ke public/ (sudah di sini)
+RewriteBase /lordik/public/
+
+# Jika file/dir ada, layani langsung
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php [L]
