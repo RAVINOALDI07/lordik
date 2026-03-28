@@ -8,15 +8,15 @@ function detectAppUrl(): string {
     $script = $_SERVER['SCRIPT_NAME'] ?? '';
 
     // Jika akses via lordik.test atau subdomain → root
-    if (preg_match('/^lord\./i', $host)) {
+    if (preg_match('/^lordik\./i', $host)) {
         return $scheme . '://' . $host;
     }
 
     // Jika akses via localhost/lordik → extract subfolder
-    if (preg_match('#^(/[^/]+/lord)#', $script, $m)) {
+    if (preg_match('#^(/[^/]+/lordik)#', $script, $m)) {
         return $scheme . '://' . $host . $m[1];
     }
-    if (preg_match('#^(/lord)#', $script, $m)) {
+    if (preg_match('#^(/lordik)#', $script, $m)) {
         return $scheme . '://' . $host . $m[1];
     }
 

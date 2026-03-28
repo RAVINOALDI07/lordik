@@ -155,7 +155,7 @@ section{padding:5rem 0}
 <!-- NAVBAR -->
 <nav class="lp-nav">
   <a href="<?= APP_URL ?>" class="lp-brand">
-    <div class="lp-brand-icon"><i class="bi bi-briefcase-fill" style="color:#fff"></i></div>
+    <img src="<?= APP_URL ?>/assets/images/logo.jpg" alt="LORDIK Logo" class="lp-brand-icon">
     <div>
       <div class="lp-brand-name">LORDIK</div>
       <div class="lp-brand-tag">Loker Cerdik</div>
