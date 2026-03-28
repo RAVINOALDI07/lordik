@@ -1,0 +1,4 @@
+# Redirect root ke public/
+RewriteEngine On
+RewriteRule ^$ public/ [L]
+RewriteRule ^((?!public/).*)$ public/$1 [L,QSA]
