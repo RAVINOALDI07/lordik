@@ -27,11 +27,11 @@ require_once BASE_PATH . '/app/Views/layouts/header.php';
 <div class="card shadow-sm border-0 mb-3">
     <div class="card-body py-2">
         <form method="GET" class="row g-2 align-items-end">
-            <div class="col-md-4">
+            <div class="col-12 col-md-4">
                 <input type="text" name="search" class="form-control form-control-sm"
                        placeholder="Cari nama / NIS / NISN..." value="<?= e($filters['search']) ?>">
             </div>
-            <div class="col-md-2">
+            <div class="col-6 col-md-2">
                 <select name="jurusan" class="form-select form-select-sm">
                     <option value="">Jurusan</option>
                     <?php foreach (['RPL','DKV','AKL','MPK','BDP','LP3K','LPB','ULW'] as $j): ?>
@@ -39,7 +39,7 @@ require_once BASE_PATH . '/app/Views/layouts/header.php';
                     <?php endforeach; ?>
                 </select>
             </div>
-            <div class="col-md-2">
+            <div class="col-6 col-md-2">
                 <select name="work_status" class="form-select form-select-sm">
                     <option value="">Status Kerja</option>
                     <?php foreach (['unemployed','employed','entrepreneur','continuing_edu'] as $s): ?>
@@ -60,7 +60,7 @@ require_once BASE_PATH . '/app/Views/layouts/header.php';
 
 <div class="card shadow-sm border-0">
     <div class="card-body p-0">
-        <div class="table-responsive">
+        <div class="table-wrap">
             <table class="table table-hover align-middle mb-0">
                 <thead class="table-light">
                     <tr>

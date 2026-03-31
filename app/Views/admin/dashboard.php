@@ -18,54 +18,54 @@ require_once BASE_PATH . '/app/Views/layouts/header.php';
 
 <!-- Stat Cards Row 1 -->
 <div class="row g-3 mb-4">
-    <div class="col-sm-6 col-xl-3">
+    <div class="col-6 col-xl-3">
         <div class="card border-0 shadow-sm h-100" style="border-left:4px solid #3b82f6!important;">
-            <div class="card-body d-flex align-items-center gap-3">
-                <div class="bg-primary bg-opacity-10 rounded-circle p-3">
-                    <i class="bi bi-mortarboard-fill fs-3 text-primary"></i>
+            <div class="card-body d-flex align-items-center gap-2 gap-md-3 p-2 p-md-3">
+                <div class="bg-primary bg-opacity-10 rounded-circle d-none d-sm-flex align-items-center justify-content-center flex-shrink-0" style="width:46px;height:46px;min-width:46px">
+                    <i class="bi bi-mortarboard-fill fs-4 text-primary"></i>
                 </div>
-                <div>
+                <div class="min-width-0">
                     <div class="h3 mb-0 fw-bold"><?= number_format($stats['total_alumni']) ?></div>
-                    <div class="text-muted small">Total Alumni</div>
+                    <div class="text-muted small text-truncate">Total Alumni</div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-xl-3">
+    <div class="col-6 col-xl-3">
         <div class="card border-0 shadow-sm h-100" style="border-left:4px solid #22c55e!important;">
-            <div class="card-body d-flex align-items-center gap-3">
-                <div class="bg-success bg-opacity-10 rounded-circle p-3">
-                    <i class="bi bi-briefcase-fill fs-3 text-success"></i>
+            <div class="card-body d-flex align-items-center gap-2 gap-md-3 p-2 p-md-3">
+                <div class="bg-success bg-opacity-10 rounded-circle d-none d-sm-flex align-items-center justify-content-center flex-shrink-0" style="width:46px;height:46px;min-width:46px">
+                    <i class="bi bi-briefcase-fill fs-4 text-success"></i>
                 </div>
-                <div>
+                <div class="min-width-0">
                     <div class="h3 mb-0 fw-bold"><?= number_format($stats['employed_alumni']) ?></div>
-                    <div class="text-muted small">Alumni Bekerja</div>
+                    <div class="text-muted small text-truncate">Alumni Bekerja</div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-xl-3">
+    <div class="col-6 col-xl-3">
         <div class="card border-0 shadow-sm h-100" style="border-left:4px solid #f59e0b!important;">
-            <div class="card-body d-flex align-items-center gap-3">
-                <div class="bg-warning bg-opacity-10 rounded-circle p-3">
-                    <i class="bi bi-file-earmark-text-fill fs-3 text-warning"></i>
+            <div class="card-body d-flex align-items-center gap-2 gap-md-3 p-2 p-md-3">
+                <div class="bg-warning bg-opacity-10 rounded-circle d-none d-sm-flex align-items-center justify-content-center flex-shrink-0" style="width:46px;height:46px;min-width:46px">
+                    <i class="bi bi-file-earmark-text-fill fs-4 text-warning"></i>
                 </div>
-                <div>
+                <div class="min-width-0">
                     <div class="h3 mb-0 fw-bold"><?= number_format($stats['active_vacancies']) ?></div>
-                    <div class="text-muted small">Lowongan Aktif</div>
+                    <div class="text-muted small text-truncate">Lowongan Aktif</div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-xl-3">
+    <div class="col-6 col-xl-3">
         <div class="card border-0 shadow-sm h-100" style="border-left:4px solid #8b5cf6!important;">
-            <div class="card-body d-flex align-items-center gap-3">
-                <div class="bg-purple bg-opacity-10 rounded-circle p-3" style="background:rgba(139,92,246,.1)">
-                    <i class="bi bi-building fs-3" style="color:#8b5cf6"></i>
+            <div class="card-body d-flex align-items-center gap-2 gap-md-3 p-2 p-md-3">
+                <div class="rounded-circle d-none d-sm-flex align-items-center justify-content-center flex-shrink-0" style="width:46px;height:46px;min-width:46px;background:rgba(139,92,246,.1)">
+                    <i class="bi bi-building fs-4" style="color:#8b5cf6"></i>
                 </div>
-                <div>
+                <div class="min-width-0">
                     <div class="h3 mb-0 fw-bold"><?= number_format($stats['total_companies']) ?></div>
-                    <div class="text-muted small">Total Perusahaan</div>
+                    <div class="text-muted small text-truncate">Total Perusahaan</div>
                 </div>
             </div>
         </div>
@@ -75,24 +75,24 @@ require_once BASE_PATH . '/app/Views/layouts/header.php';
 <!-- Charts Row -->
 <div class="row g-3 mb-4">
     <!-- Work Status Chart -->
-    <div class="col-lg-5">
+    <div class="col-12 col-md-6 col-lg-5">
         <div class="card shadow-sm border-0 h-100">
             <div class="card-header bg-white border-bottom fw-semibold">
                 <i class="bi bi-pie-chart me-2 text-primary"></i>Status Alumni
             </div>
             <div class="card-body d-flex align-items-center justify-content-center">
-                <canvas id="workStatusChart" style="max-height:250px;"></canvas>
+                <canvas id="workStatusChart" style="max-height:220px;max-width:220px;"></canvas>
             </div>
         </div>
     </div>
     <!-- Monthly Applications Chart -->
-    <div class="col-lg-7">
+    <div class="col-12 col-md-6 col-lg-7">
         <div class="card shadow-sm border-0 h-100">
             <div class="card-header bg-white border-bottom fw-semibold">
                 <i class="bi bi-bar-chart me-2 text-primary"></i>Tren Lamaran (6 Bulan Terakhir)
             </div>
             <div class="card-body">
-                <canvas id="monthlyAppChart" style="max-height:250px;"></canvas>
+                <canvas id="monthlyAppChart" style="max-height:220px;"></canvas>
             </div>
         </div>
     </div>
@@ -106,7 +106,7 @@ require_once BASE_PATH . '/app/Views/layouts/header.php';
                 <span><i class="bi bi-table me-2 text-primary"></i>Statistik Per Jurusan</span>
             </div>
             <div class="card-body p-0">
-                <div class="table-responsive">
+                <div class="table-wrap">
                     <table class="table table-hover mb-0">
                         <thead class="table-light">
                             <tr>
@@ -180,28 +180,14 @@ require_once BASE_PATH . '/app/Views/layouts/header.php';
                 <i class="bi bi-lightning me-2 text-warning"></i>Aksi Cepat
             </div>
             <div class="card-body">
-                <div class="d-flex flex-wrap gap-2">
-                    <a href="<?= APP_URL ?>/admin/users.php?action=create&role=alumni" class="btn btn-outline-primary">
-                        <i class="bi bi-person-plus me-1"></i>Buat Akun Alumni
-                    </a>
-                    <a href="<?= APP_URL ?>/admin/users.php?action=create&role=company" class="btn btn-outline-success">
-                        <i class="bi bi-building-add me-1"></i>Buat Akun Perusahaan
-                    </a>
-                    <a href="<?= APP_URL ?>/admin/reports.php?export=csv" class="btn btn-outline-secondary">
-                        <i class="bi bi-file-earmark-spreadsheet me-1"></i>Export CSV Alumni
-                    </a>
-                    <a href="<?= APP_URL ?>/admin/reports.php?export=pdf" class="btn btn-outline-danger">
-                        <i class="bi bi-file-earmark-pdf me-1"></i>Export Laporan PDF
-                    </a>
-                    <a href="<?= APP_URL ?>/admin/logs.php" class="btn btn-outline-dark">
-                        <i class="bi bi-journal-text me-1"></i>Activity Logs
-                    </a>
-                    <a href="<?= APP_URL ?>/admin/applications.php" class="btn btn-outline-info">
-                        <i class="bi bi-inbox me-1"></i>Semua Lamaran
-                    </a>
-                    <a href="<?= APP_URL ?>/admin/company/list.php" class="btn btn-outline-secondary">
-                        <i class="bi bi-building me-1"></i>Data Perusahaan
-                    </a>
+                <div class="row g-2">
+                    <div class="col-6 col-sm-auto"><a href="<?= APP_URL ?>/admin/users.php?action=create&role=alumni" class="btn btn-outline-primary btn-sm w-100"><i class="bi bi-person-plus me-1"></i>Buat Alumni</a></div>
+                    <div class="col-6 col-sm-auto"><a href="<?= APP_URL ?>/admin/users.php?action=create&role=company" class="btn btn-outline-success btn-sm w-100"><i class="bi bi-building-add me-1"></i>Buat Perusahaan</a></div>
+                    <div class="col-6 col-sm-auto"><a href="<?= APP_URL ?>/admin/reports.php?export=csv" class="btn btn-outline-secondary btn-sm w-100"><i class="bi bi-file-earmark-spreadsheet me-1"></i>Export CSV</a></div>
+                    <div class="col-6 col-sm-auto"><a href="<?= APP_URL ?>/admin/reports.php?export=pdf" class="btn btn-outline-danger btn-sm w-100"><i class="bi bi-file-earmark-pdf me-1"></i>Export PDF</a></div>
+                    <div class="col-6 col-sm-auto"><a href="<?= APP_URL ?>/admin/logs.php" class="btn btn-outline-dark btn-sm w-100"><i class="bi bi-journal-text me-1"></i>Activity Logs</a></div>
+                    <div class="col-6 col-sm-auto"><a href="<?= APP_URL ?>/admin/applications.php" class="btn btn-outline-info btn-sm w-100"><i class="bi bi-inbox me-1"></i>Semua Lamaran</a></div>
+                    <div class="col-6 col-sm-auto"><a href="<?= APP_URL ?>/admin/company/list.php" class="btn btn-outline-secondary btn-sm w-100"><i class="bi bi-building me-1"></i>Data Perusahaan</a></div>
                 </div>
             </div>
         </div>

@@ -37,16 +37,11 @@ $pageTitle = 'Daftar Lowongan — ' . APP_NAME;
 require_once BASE_PATH . '/app/Views/layouts/header.php';
 ?>
 
-<div class="d-flex align-items-center gap-3 mb-3">
-    <a href="<?= APP_URL ?>" class="btn-back"><i class="bi bi-arrow-left"></i> Beranda</a>
-    <h4 class="fw-bold mb-0"><i class="bi bi-search me-2 text-primary"></i>Cari Lowongan</h4>
-</div>
-
-
-<div class="d-flex justify-content-between align-items-center mb-3">
-    <div>
-        <h4 class="fw-bold mb-0"><i class="bi bi-briefcase me-2 text-primary"></i>Lowongan Tersedia</h4>
-        <div class="text-muted small"><?= $result['total'] ?> lowongan aktif</div>
+<div class="d-flex align-items-center gap-2 mb-4">
+    <a href="<?= APP_URL ?>" class="btn-back flex-shrink-0"><i class="bi bi-arrow-left"></i> <span class="d-none d-sm-inline">Beranda</span></a>
+    <div class="min-width-0">
+        <h5 class="fw-bold mb-0 text-truncate"><i class="bi bi-briefcase me-2 text-primary"></i>Lowongan Tersedia</h5>
+        <div class="text-muted" style="font-size:.78rem"><?= $result['total'] ?> lowongan aktif</div>
     </div>
 </div>
 
@@ -69,14 +64,14 @@ require_once BASE_PATH . '/app/Views/layouts/header.php';
 <div class="card shadow-sm border-0 mb-4">
     <div class="card-body py-2">
         <form method="GET" class="row g-2 align-items-end">
-            <div class="col-md-4">
+            <div class="col-12 col-md-4">
                 <div class="input-group input-group-sm">
                     <span class="input-group-text bg-white border-end-0"><i class="bi bi-search text-muted"></i></span>
                     <input type="text" name="search" class="form-control border-start-0 ps-0"
                            placeholder="Cari posisi atau perusahaan..." value="<?= e($filters['search']) ?>">
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-6 col-md-3">
                 <select name="job_type" class="form-select form-select-sm">
                     <option value="">Semua Tipe</option>
                     <?php foreach (['full_time'=>'Full Time','part_time'=>'Part Time','contract'=>'Kontrak','internship'=>'Magang'] as $v=>$l): ?>
@@ -84,7 +79,7 @@ require_once BASE_PATH . '/app/Views/layouts/header.php';
                     <?php endforeach; ?>
                 </select>
             </div>
-            <div class="col-md-3">
+            <div class="col-6 col-md-3">
                 <select name="jurusan" class="form-select form-select-sm">
                     <option value="">Semua Jurusan</option>
                     <?php foreach (['RPL','DKV','AKL','MPK','BDP','LP3K','LPB','ULW'] as $j): ?>
@@ -92,10 +87,10 @@ require_once BASE_PATH . '/app/Views/layouts/header.php';
                     <?php endforeach; ?>
                 </select>
             </div>
-            <div class="col-auto d-flex gap-2">
-                <button type="submit" class="btn btn-primary btn-sm">Cari</button>
+            <div class="col-12 col-md-auto d-flex gap-2">
+                <button type="submit" class="btn btn-primary btn-sm flex-fill flex-md-grow-0">Cari</button>
                 <?php if ($filters['search']||$filters['job_type']||$filters['jurusan']): ?>
-                <a href="?" class="btn btn-outline-secondary btn-sm">Reset</a>
+                <a href="?" class="btn btn-outline-secondary btn-sm flex-fill flex-md-grow-0">Reset</a>
                 <?php endif; ?>
             </div>
         </form>

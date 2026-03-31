@@ -53,11 +53,11 @@ require_once BASE_PATH . '/app/Views/layouts/header.php';
     <div class="card-body py-2">
         <form method="GET" class="row g-2 align-items-end">
             <input type="hidden" name="status" value="<?= e($filters['status']) ?>">
-            <div class="col-md-4">
+            <div class="col-12 col-md-4">
                 <input type="text" name="search" class="form-control form-control-sm"
                        placeholder="Cari nama / jurusan..." value="<?= e($filters['search']) ?>">
             </div>
-            <div class="col-md-5">
+            <div class="col-12 col-md-5">
                 <select name="vacancy_id" class="form-select form-select-sm">
                     <option value="">Semua Lowongan</option>
                     <?php foreach ($vacancyList as $v): ?>
@@ -67,9 +67,9 @@ require_once BASE_PATH . '/app/Views/layouts/header.php';
                     <?php endforeach; ?>
                 </select>
             </div>
-            <div class="col-auto d-flex gap-2">
-                <button type="submit" class="btn btn-sm btn-primary">Filter</button>
-                <a href="?" class="btn btn-sm btn-outline-secondary">Reset</a>
+            <div class="col-12 col-md-auto d-flex gap-2">
+                <button type="submit" class="btn btn-sm btn-primary flex-fill flex-md-grow-0">Filter</button>
+                <a href="?" class="btn btn-sm btn-outline-secondary flex-fill flex-md-grow-0">Reset</a>
             </div>
         </form>
     </div>

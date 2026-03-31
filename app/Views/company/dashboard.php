@@ -47,35 +47,33 @@ require_once BASE_PATH . '/app/Views/layouts/header.php';
 
 <!-- Welcome -->
 <div class="card border-0 shadow-sm mb-4" style="background:linear-gradient(135deg,#059669,#34d399)">
-    <div class="card-body text-white p-4">
+    <div class="card-body text-white p-3 p-md-4">
         <?= backButton() ?>
-<h4 class="fw-bold mb-1">
-            <?= e($profile['company_name'] ?? currentUser()['username']) ?>
-        </h4>
-        <p class="mb-0 opacity-75">
+<h5 class="fw-bold mb-1 mt-1 text-truncate"><?= e($profile['company_name'] ?? currentUser()['username']) ?></h5>
+        <p class="mb-0 opacity-75 small">
             <?= e($profile['industry'] ?? '') ?>
-            <?php if ($profile['city']): ?>&nbsp;|&nbsp; <?= e($profile['city']) ?><?php endif; ?>
+            <?php if ($profile['city']): ?><span class="d-none d-sm-inline">&nbsp;|&nbsp;</span><span class="d-block d-sm-inline"><?= e($profile['city']) ?></span><?php endif; ?>
         </p>
     </div>
 </div>
 
 <!-- Stats -->
 <div class="row g-3 mb-4">
-    <div class="col-sm-4">
-        <div class="card border-0 shadow-sm text-center p-3">
-            <div class="h2 fw-bold text-primary"><?= $vacancyStats['total'] ?></div>
+    <div class="col-4">
+        <div class="card border-0 shadow-sm text-center p-2 p-md-3 h-100">
+            <div class="h2 fw-bold text-primary mb-0"><?= $vacancyStats['total'] ?></div>
             <div class="text-muted small">Total Lowongan</div>
         </div>
     </div>
-    <div class="col-sm-4">
-        <div class="card border-0 shadow-sm text-center p-3">
-            <div class="h2 fw-bold text-success"><?= $vacancyStats['approved'] ?? 0 ?></div>
+    <div class="col-4">
+        <div class="card border-0 shadow-sm text-center p-2 p-md-3 h-100">
+            <div class="h2 fw-bold text-success mb-0"><?= $vacancyStats['approved'] ?? 0 ?></div>
             <div class="text-muted small">Aktif</div>
         </div>
     </div>
-    <div class="col-sm-4">
-        <div class="card border-0 shadow-sm text-center p-3">
-            <div class="h2 fw-bold text-warning"><?= $vacancyStats['submitted'] ?? 0 ?></div>
+    <div class="col-4">
+        <div class="card border-0 shadow-sm text-center p-2 p-md-3 h-100">
+            <div class="h2 fw-bold text-warning mb-0"><?= $vacancyStats['submitted'] ?? 0 ?></div>
             <div class="text-muted small">Menunggu Approve</div>
         </div>
     </div>
@@ -90,10 +88,10 @@ require_once BASE_PATH . '/app/Views/layouts/header.php';
                 <a href="<?= APP_URL ?>/company/applications.php" class="text-primary small">Lihat semua</a>
             </div>
             <?php if ($recentApps): ?>
-            <div class="table-responsive">
-                <table class="table table-hover align-middle mb-0">
+            <div class="table-wrap">
+                <table class="table table-hover align-middle mb-0" style="min-width:440px">
                     <thead class="table-light"><tr>
-                        <th>Nama</th><th>Posisi</th><th>Status</th><th>Tanggal</th>
+                        <th>Nama</th><th>Posisi</th><th>Status</th><th class="d-none d-sm-table-cell">Tanggal</th>
                     </tr></thead>
                     <tbody>
                         <?php foreach ($recentApps as $app): ?>
@@ -101,7 +99,7 @@ require_once BASE_PATH . '/app/Views/layouts/header.php';
                             <td class="fw-semibold small"><?= e($app['full_name']) ?></td>
                             <td class="small"><?= e($app['vacancy_title']) ?></td>
                             <td><?= statusBadge($app['status']) ?></td>
-                            <td class="small text-muted"><?= formatDate($app['applied_at'], 'd M Y') ?></td>
+                            <td class="small text-muted d-none d-sm-table-cell"><?= formatDate($app['applied_at'], 'd M Y') ?></td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>

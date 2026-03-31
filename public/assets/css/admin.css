@@ -443,56 +443,9 @@ body {
 /* ── MIN-WIDTH FIX ──────────────────────────────────── */
 .min-width-0 { min-width: 0; }
 
-/* ── MOBILE ─────────────────────────────────────────── */
-@media (max-width: 991px) {
-    #adminSidebar { transform: translateX(-100%); }
-    #adminSidebar.open { transform: translateX(0); box-shadow: 4px 0 24px rgba(0,0,0,.35); }
-    #adminContent { margin-left: 0; padding-top: calc(var(--topbar-h) + 1rem); padding-left: 1rem; padding-right: 1rem; }
-    #adminTopbar  { left: 0; }
-    .topbar-hamburger { display: flex !important; align-items: center; }
-    #sidebarOverlay {
-        display: none; position: fixed; inset: 0;
-        background: rgba(0,0,0,.55); z-index: 1039;
-    }
-    #sidebarOverlay.show { display: block; }
-}
-
-/* ── ADMIN MOBILE ADDITIONS ─────────────────────────────── */
-@media (max-width: 768px) {
-    #adminContent { padding: .75rem .6rem 2rem; }
-
-    /* Stat cards: 2 per row on mobile */
-    #adminContent .row.g-3 > .col-sm-6 { flex: 0 0 50%; max-width: 50%; }
-    #adminContent .row.g-3 > .col-sm-6 .card-body { padding: .75rem !important; }
-    #adminContent .row.g-3 > .col-sm-6 .h3 { font-size: 1.4rem; }
-
-    /* Tables: horizontal scroll */
-    .table-wrap, .rekap-preview { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    .rekap-preview table { min-width: 700px; }
-
-    /* Report tabs: scroll horizontal */
-    #reportTabs { flex-wrap: nowrap; overflow-x: auto; padding-bottom: .3rem; }
-    #reportTabs .nav-link { white-space: nowrap; font-size: .8rem; padding: .35rem .65rem; }
-
-    /* Buttons in action rows */
-    .btn-group-mobile { flex-direction: column; }
-    .btn-group-mobile .btn { border-radius: 6px !important; margin-bottom: .25rem; }
-}
-
-@media (max-width: 576px) {
-    /* Topbar title truncate */
-    .topbar-title { max-width: 160px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-
-    /* Cards full padding reduce */
-    .card-body { padding: .85rem !important; }
-
-    /* Tables: force min-width */
-    table.table { min-width: 480px; }
-    .table-container { overflow-x: auto; }
-
-    /* Hide some columns with .d-none-xs */
-    .d-none-xs { display: none !important; }
-}
+/* Table scroll helpers */
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.table-container { overflow-x: auto; }
 
 /* ── BACK BUTTON ─────────────────────────────────────── */
 .btn-back {
@@ -506,33 +459,144 @@ body {
 }
 .btn-back i { font-size: .75rem; }
 .btn-back:hover { background: #f1f5f9; color: #1e3a8a; border-color: #3b82f6; }
+
+/* ==============================================================
+   RESPONSIVE — TABLET/SMALL DESKTOP (992px – 1280px)
+   ============================================================== */
+@media (min-width: 992px) and (max-width: 1280px) {
+    :root { --sidebar-w: 220px; }
+    #adminContent { padding-left: 1.25rem; padding-right: 1.25rem; }
+}
+
+/* ==============================================================
+   RESPONSIVE — COLLAPSED SIDEBAR (≤991px)
+   ============================================================== */
+@media (max-width: 991px) {
+    /* Sidebar off-canvas */
+    #adminSidebar {
+        transform: translateX(-100%);
+        transition: transform .25s ease;
+    }
+    #adminSidebar.open {
+        transform: translateX(0);
+        box-shadow: 4px 0 24px rgba(0,0,0,.35);
+    }
+
+    /* Content: full width */
+    #adminContent {
+        margin-left: 0;
+        padding-top: calc(var(--topbar-h) + 1rem);
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    #adminTopbar { left: 0; padding: 0 1rem; gap: .6rem; }
+    .topbar-hamburger { display: flex !important; align-items: center; }
+    .topbar-actions { gap: .35rem; }
+
+    /* Overlay */
+    #sidebarOverlay {
+        display: none; position: fixed; inset: 0;
+        background: rgba(0,0,0,.55); z-index: 1039;
+    }
+    #sidebarOverlay.show { display: block; }
+
+    /* Tables: always scrollable */
+    .table-wrap, .table-container, .rekap-preview { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
+
+/* ==============================================================
+   RESPONSIVE — MOBILE (≤768px)
+   ============================================================== */
+@media (max-width: 768px) {
+    #adminContent { padding: .85rem .75rem 2rem; }
+
+    /* Stat cards: 2-per-row */
+    #adminContent .row.g-3 > .col-sm-6 { flex: 0 0 50%; max-width: 50%; }
+    #adminContent .row.g-3 > .col-sm-6 .card-body { padding: .75rem !important; }
+    #adminContent .row.g-3 > .col-sm-6 .h3 { font-size: 1.4rem; }
+
+    /* Tables */
+    .rekap-preview table { min-width: 700px; }
+
+    /* Report tabs: horizontal scroll */
+    #reportTabs { flex-wrap: nowrap; overflow-x: auto; padding-bottom: .3rem; -webkit-overflow-scrolling: touch; }
+    #reportTabs .nav-link { white-space: nowrap; font-size: .8rem; padding: .35rem .65rem; }
+
+    /* Button groups */
+    .btn-group-mobile { flex-direction: column; }
+    .btn-group-mobile .btn { border-radius: 6px !important; margin-bottom: .25rem; }
+
+    /* Card header compact */
+    .card-header { padding: .65rem .85rem !important; font-size: .82rem; }
+
+    /* Headings */
+    h4.fw-bold, h5.fw-bold { font-size: 1rem; }
+
+    /* Dropdown full-width */
+    .topbar-actions .dropdown-menu {
+        position: fixed !important;
+        left: 8px !important; right: 8px !important;
+        width: auto !important; max-width: none !important;
+        top: auto !important; transform: none !important;
+    }
+}
+
+/* ==============================================================
+   RESPONSIVE — SMALL MOBILE (≤576px)
+   ============================================================== */
 @media (max-width: 576px) {
+    #adminContent { padding: .65rem .55rem 2rem; }
+
+    .topbar-title { max-width: 130px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    #adminTopbar { padding: 0 .7rem; gap: .4rem; }
+
+    .card-body { padding: .75rem !important; }
+    .card-header { padding: .6rem .75rem !important; font-size: .8rem; }
+
+    #adminContent .row.g-3 > .col-sm-6 .card-body { padding: .6rem !important; }
+    #adminContent .row.g-3 > .col-sm-6 .h3 { font-size: 1.2rem; }
+    #adminContent .row.g-3 > .col-sm-6 small { font-size: .67rem; }
+
+    table.table { min-width: 480px; }
+
+    .btn { font-size: .78rem; padding: .38rem .75rem; }
+    .btn-sm { font-size: .72rem; padding: .25rem .55rem; }
+
+    .form-control, .form-select { font-size: .82rem; padding: .45rem .75rem; }
+    .form-label { font-size: .78rem; }
+
+    .pagination { flex-wrap: wrap; gap: .2rem; }
+    .pagination .page-link { font-size: .72rem; padding: .28rem .5rem; }
+
     .btn-back { font-size: .72rem; padding: .2rem .45rem; gap: .22rem; }
+
+    #reportTabs .nav-link { font-size: .75rem; padding: .3rem .55rem; }
+
+    .d-none-xs { display: none !important; }
+
+    .alert { font-size: .82rem; padding: .6rem .85rem; }
+    .badge { font-size: .65rem; }
+}
+
+/* ==============================================================
+   RESPONSIVE — EXTRA SMALL (≤400px)
+   ============================================================== */
+@media (max-width: 400px) {
+    #adminContent { padding: .5rem .45rem 2rem; }
+    .topbar-title { max-width: 100px; }
+    #adminContent .row.g-3 > .col-sm-6 .h3 { font-size: 1.05rem; }
 }
 
 /* ── PRINT STYLES ───────────────────────────────────── */
-
-/* printArea TIDAK pernah muncul di layar normal */
-#printArea {
-    display: none !important;
-}
+#printArea { display: none !important; }
 
 @media print {
     body, html { background: #fff !important; font-size: 11pt; }
 
-    /* Sembunyikan semua UI - hanya tampilkan printArea */
-    #adminSidebar,
-    #adminTopbar,
-    #sidebarOverlay,
-    #adminContent,
-    .topbar-actions,
-    .btn-back,
-    .btn,
-    .alert,
-    nav,
-    .no-print { display: none !important; }
+    #adminSidebar, #adminTopbar, #sidebarOverlay, #adminContent,
+    .topbar-actions, .btn-back, .btn, .alert, nav, .no-print { display: none !important; }
 
-    /* printArea tampil saat cetak */
     #printArea {
         display: block !important;
         position: static !important;

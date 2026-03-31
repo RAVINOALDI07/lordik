@@ -37,17 +37,18 @@ require_once BASE_PATH . '/app/Views/layouts/header.php';
 
 <!-- Welcome Card -->
 <div class="card border-0 shadow-sm mb-4" style="background:linear-gradient(135deg,#1e3a8a,#3b82f6)">
-    <div class="card-body text-white p-4 d-flex align-items-center gap-4">
-        <div class="bg-white bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center"
-             style="width:70px;height:70px;min-width:70px;">
-            <i class="bi bi-person-fill fs-1"></i>
+    <div class="card-body text-white p-3 p-md-4 d-flex align-items-center gap-3 flex-wrap flex-sm-nowrap">
+        <div class="bg-white bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
+             style="width:56px;height:56px;min-width:56px;">
+            <i class="bi bi-person-fill fs-2"></i>
         </div>
-        <div>
-            <h4 class="mb-1 fw-bold">Selamat datang, <?= e($profile['full_name'] ?? currentUser()['username']) ?>!</h4>
-            <p class="mb-0 opacity-75">
+        <div class="min-width-0">
+            <h5 class="mb-1 fw-bold text-truncate">Selamat datang, <?= e($profile['full_name'] ?? currentUser()['username']) ?>!</h5>
+            <p class="mb-0 opacity-75 small">
                 <?php if ($profile): ?>
                     <?= e($profile['jurusan']) ?> — Angkatan <?= e($profile['graduation_year']) ?>
-                    &nbsp;|&nbsp; Status: <strong><?= workStatusLabel($profile['work_status']) ?></strong>
+                    <span class="d-none d-sm-inline">&nbsp;|&nbsp;</span>
+                    <span class="d-block d-sm-inline">Status: <strong><?= workStatusLabel($profile['work_status']) ?></strong></span>
                 <?php else: ?>
                     Akun Alumni LORDIK
                 <?php endif; ?>
@@ -65,21 +66,21 @@ require_once BASE_PATH . '/app/Views/layouts/header.php';
     $accepted     = $statusCounts['accepted'] ?? 0;
     $pending      = $statusCounts['pending'] ?? 0;
     ?>
-    <div class="col-sm-4">
-        <div class="card border-0 shadow-sm text-center p-3">
-            <div class="h2 fw-bold text-primary"><?= $total ?></div>
+    <div class="col-4">
+        <div class="card border-0 shadow-sm text-center p-2 p-md-3 h-100">
+            <div class="h2 fw-bold text-primary mb-0"><?= $total ?></div>
             <div class="text-muted small">Total Lamaran</div>
         </div>
     </div>
-    <div class="col-sm-4">
-        <div class="card border-0 shadow-sm text-center p-3">
-            <div class="h2 fw-bold text-warning"><?= $pending ?></div>
+    <div class="col-4">
+        <div class="card border-0 shadow-sm text-center p-2 p-md-3 h-100">
+            <div class="h2 fw-bold text-warning mb-0"><?= $pending ?></div>
             <div class="text-muted small">Menunggu</div>
         </div>
     </div>
-    <div class="col-sm-4">
-        <div class="card border-0 shadow-sm text-center p-3">
-            <div class="h2 fw-bold text-success"><?= $accepted ?></div>
+    <div class="col-4">
+        <div class="card border-0 shadow-sm text-center p-2 p-md-3 h-100">
+            <div class="h2 fw-bold text-success mb-0"><?= $accepted ?></div>
             <div class="text-muted small">Diterima</div>
         </div>
     </div>

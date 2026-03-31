@@ -193,7 +193,7 @@ section{padding:5rem 0}
       <a href="<?= APP_URL ?>/auth/login.php" class="btn-hero-primary">
         <i class="bi bi-rocket-takeoff-fill"></i> Mulai Melamar
       </a>
-      <a href="#lowongan" class="btn-hero-sec">
+      <a href="<?= APP_URL ?>/auth/login.php" class="btn-hero-sec">
         <i class="bi bi-briefcase"></i> Lihat Lowongan
       </a>
     </div>

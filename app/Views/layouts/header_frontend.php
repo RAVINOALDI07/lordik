@@ -43,7 +43,7 @@ function feIsActive(string $path): string {
 
     <!-- Brand -->
     <a href="<?= APP_URL ?>" class="fe-brand">
-        <img src="<?= APP_URL ?>/assets/images/logo.jpg" alt="LORDIK Logo" class="fe-brand-icon">
+        <span class="fe-brand-icon"><img src="<?= APP_URL ?>/assets/images/logo.jpg" alt="LORDIK Logo" style="width:100%;height:100%;object-fit:cover;border-radius:9px"></span>
         <span class="fe-brand-name d-none d-sm-inline">LORDIK</span>
     </a>
 
@@ -216,6 +216,14 @@ function feIsActive(string $path): string {
     <a href="<?= APP_URL ?>/chat/"><i class="bi bi-chat-dots me-2"></i>Pesan
         <?php if ($unreadChat > 0): ?><span class="nav-badge ms-1"><?= $unreadChat ?></span><?php endif; ?>
     </a>
+    <hr>
+    <a href="<?= APP_URL ?>/auth/change_password.php"><i class="bi bi-key me-2 text-secondary"></i>Ganti Password</a>
+    <form method="POST" action="<?= APP_URL ?>/auth/logout.php" style="margin:0">
+        <?= csrfField() ?>
+        <button type="submit" style="all:unset;display:flex;align-items:center;gap:.5rem;padding:.65rem .7rem;border-radius:8px;color:#ef4444;font-size:.9rem;width:100%;cursor:pointer;margin-bottom:.1rem">
+            <i class="bi bi-box-arrow-right"></i>Logout
+        </button>
+    </form>
 </div>
 
 <!-- ══════════════════════════════════════════════

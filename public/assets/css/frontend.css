@@ -1,6 +1,6 @@
 /* ================================================================
    LORDIK — FRONTEND CSS
-   Clean, modern job-board style for alumni & company
+   Responsive: mobile & desktop
    ================================================================ */
 
 :root {
@@ -28,7 +28,10 @@ body {
     color: var(--text-dark);
     padding-top: var(--nav-h);
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
+
+img { max-width: 100%; height: auto; }
 
 /* ── NAVBAR ──────────────────────────────────────────── */
 #frontendNav {
@@ -55,16 +58,20 @@ body {
     display: flex; align-items: center; justify-content: center;
     color: #fff; font-size: .95rem;
     box-shadow: 0 2px 8px rgba(37,99,235,.3);
+    overflow: hidden; flex-shrink: 0;
 }
+.fe-brand-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 9px; }
 .fe-brand-name {
     font-size: 1.05rem; font-weight: 800;
     color: var(--text-dark); letter-spacing: -.3px;
+    white-space: nowrap;
 }
 
 /* Nav links */
 .fe-nav-links {
     display: flex; align-items: center; gap: .05rem;
     list-style: none; margin: 0; padding: 0; flex: 1;
+    overflow: hidden;
 }
 .fe-nav-links a {
     display: flex; align-items: center; gap: .35rem;
@@ -100,6 +107,7 @@ body {
     display: flex; align-items: center; justify-content: center;
     color: var(--text-soft); cursor: pointer; font-size: .95rem;
     text-decoration: none; transition: background .12s, border-color .12s;
+    flex-shrink: 0;
 }
 .fe-icon-btn:hover { background: #f9fafb; border-color: #d1d5db; color: var(--text-dark); }
 .fe-notif-dot {
@@ -115,6 +123,7 @@ body {
     overflow: hidden; background: #e5e7eb;
     display: inline-flex; align-items: center; justify-content: center;
     font-size: .85rem; color: #9ca3af; border: 2px solid var(--border);
+    flex-shrink: 0;
 }
 .fe-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
 
@@ -122,6 +131,7 @@ body {
     display: none;
     background: none; border: 1px solid var(--border); border-radius: 7px;
     padding: .28rem .5rem; color: var(--text-soft); cursor: pointer; font-size: 1.05rem;
+    flex-shrink: 0;
 }
 
 /* Mobile menu */
@@ -129,15 +139,19 @@ body {
     display: none; position: fixed;
     top: var(--nav-h); left: 0; right: 0;
     background: #fff; border-bottom: 1px solid var(--border);
-    box-shadow: 0 4px 16px rgba(0,0,0,.08); z-index: 1029; padding: .6rem .9rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,.08); z-index: 1029;
+    padding: .5rem .9rem .8rem;
+    max-height: calc(100vh - var(--nav-h));
+    overflow-y: auto;
 }
 #mobileMenu.open { display: block; }
 #mobileMenu a {
     display: flex; align-items: center; gap: .5rem;
-    padding: .6rem .7rem; border-radius: 8px;
-    color: var(--text-mid); font-size: .9rem; text-decoration: none; margin-bottom: .15rem;
+    padding: .65rem .7rem; border-radius: 8px;
+    color: var(--text-mid); font-size: .9rem; text-decoration: none; margin-bottom: .1rem;
 }
 #mobileMenu a:hover { background: #f3f4f6; }
+#mobileMenu hr { margin: .4rem 0; border-color: var(--border); }
 
 /* ── PAGE CONTENT ────────────────────────────────────── */
 .fe-content {
@@ -234,10 +248,6 @@ body {
 }
 .avatar-circle-lg img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
 
-
-
-
-
 /* ── STATUS TIMELINE ─────────────────────────────────── */
 .timeline-step { position: relative; padding-left: 2rem; padding-bottom: 1.25rem; }
 .timeline-step::before {
@@ -298,78 +308,10 @@ body {
     letter-spacing: 1.5px; font-size: 1.05rem; font-weight: 700;
 }
 
-/* ── RESPONSIVE ──────────────────────────────────────── */
-@media (max-width: 768px) {
-    .fe-nav-links { display: none; }
-    .fe-hamburger { display: flex !important; align-items: center; }
-    .fe-content   { padding: 1rem .9rem 2rem; }
-}
-
-/* ── MOBILE RESPONSIVE ADDITIONS ─────────────────────────── */
-
-/* Scrollable tables on small screens */
-.table-responsive-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    border-radius: 8px;
-}
-
-/* Small mobile (≤576px) */
-@media (max-width: 576px) {
-    .fe-content { padding: .75rem .6rem 3rem; }
-
-    /* Cards */
-    .card { border-radius: 10px !important; }
-    .card-body { padding: 1rem !important; }
-
-    /* Buttons - make full width on tiny screens */
-    .btn-mobile-full { width: 100% !important; margin-bottom: .4rem; }
-
-    /* Tables - force horizontal scroll */
-    table { min-width: 500px; }
-    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-
-    /* Stat cards: 2-column grid */
-    .row.g-3 > [class*='col-sm-6'] { flex: 0 0 50%; max-width: 50%; }
-
-    /* Badge overflow fix */
-    .badge { font-size: .65rem; }
-
-    /* Pagination wrap */
-    .pagination { flex-wrap: wrap; gap: .2rem; }
-
-    /* Forms */
-    .form-control, .form-select { font-size: .875rem; }
-
-    /* Hide less important table columns */
-    .d-none-xs { display: none !important; }
-}
-
-/* Medium mobile (577-768px) */
-@media (min-width: 577px) and (max-width: 768px) {
-    .fe-content { padding: 1rem .85rem 2.5rem; }
-    table { min-width: 600px; }
-    .table-wrap { overflow-x: auto; }
-}
-
-/* Ensure images don't overflow */
-img { max-width: 100%; height: auto; }
-
-/* Fix dropdown overflow on mobile */
-@media (max-width: 768px) {
-    .dropdown-menu {
-        position: fixed !important;
-        left: 10px !important;
-        right: 10px !important;
-        width: auto !important;
-        top: auto !important;
-    }
-    /* Re-position notifications dropdown */
-    .fe-nav-right .dropdown-menu {
-        left: 8px !important;
-        right: 8px !important;
-    }
-}
+/* Table scroll helpers */
+.table-responsive-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 8px; }
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.table-container { overflow-x: auto; }
 
 /* ── BACK BUTTON ─────────────────────────────────────── */
 .btn-back {
@@ -383,6 +325,138 @@ img { max-width: 100%; height: auto; }
 }
 .btn-back i { font-size: .75rem; }
 .btn-back:hover { background: #f1f5f9; color: #1e3a8a; border-color: #3b82f6; }
+
+/* ==============================================================
+   RESPONSIVE — TABLET / SMALL DESKTOP (769px – 1024px)
+   ============================================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    #frontendNav { padding: 0 1rem; }
+    .fe-nav-links a { padding: .38rem .55rem; font-size: .82rem; }
+    .fe-content { padding: 1.25rem 1rem 2.5rem; }
+}
+
+/* ==============================================================
+   RESPONSIVE — MOBILE (≤768px)
+   ============================================================== */
+@media (max-width: 768px) {
+    /* Hide desktop nav, show hamburger */
+    .fe-nav-links { display: none; }
+    .fe-hamburger { display: flex !important; align-items: center; }
+
+    #frontendNav { padding: 0 .9rem; gap: .5rem; }
+    .fe-content { padding: 1rem .9rem 2rem; }
+
+    /* Profile hero */
+    .profile-hero { padding: 1.25rem; }
+    .profile-hero .d-flex { flex-wrap: wrap; gap: .75rem; }
+
+    /* Cards */
+    .card-body { padding: 1rem !important; }
+
+    /* Dropdown: full-width on mobile */
+    .dropdown-menu {
+        position: fixed !important;
+        left: 8px !important;
+        right: 8px !important;
+        width: auto !important;
+        max-width: none !important;
+        top: auto !important;
+        transform: none !important;
+    }
+
+    /* Pagination */
+    .pagination { flex-wrap: wrap; gap: .2rem; }
+
+    /* Tables */
+    table { min-width: 520px; }
+    .table-wrap, .table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+    /* Stats row: always 2-per-row minimum */
+    .row.g-3 > [class*='col-sm-6'] { flex: 0 0 50%; max-width: 50%; }
+
+    /* Avatar large shrink */
+    .avatar-circle-lg { width: 80px; height: 80px; min-width: 80px; font-size: 2rem; }
+
+    /* Chat bubbles: allow more width */
+    .chat-bubble-mine, .chat-bubble-theirs { max-width: 85%; }
+
+    /* Headings */
+    h4.fw-bold { font-size: 1.05rem; }
+    h5.fw-bold { font-size: .95rem; }
+}
+
+/* ==============================================================
+   RESPONSIVE — SMALL MOBILE (≤576px)
+   ============================================================== */
 @media (max-width: 576px) {
+    .fe-content { padding: .75rem .65rem 3rem; }
+    #frontendNav { padding: 0 .75rem; gap: .35rem; }
+
+    /* Cards */
+    .card { border-radius: 10px !important; }
+    .card-body { padding: .85rem !important; }
+    .card-header { padding: .7rem .85rem !important; font-size: .82rem; }
+
+    /* Tables */
+    table { min-width: 480px; }
+
+    /* Stats always visible as 2-col */
+    .row.g-3 > [class*='col-sm-6'] .card-body { padding: .65rem !important; }
+    .row.g-3 > [class*='col-sm-6'] .h2,
+    .row.g-3 > [class*='col-sm-6'] .h3 { font-size: 1.35rem; }
+
+    /* Buttons */
+    .btn-mobile-full { width: 100% !important; margin-bottom: .4rem; }
+    .btn { font-size: .82rem; padding: .42rem .85rem; }
+    .btn-sm { font-size: .75rem; padding: .28rem .6rem; }
+
+    /* Typography */
+    h4.fw-bold { font-size: 1rem; }
+    h5.fw-bold { font-size: .9rem; }
+    .badge { font-size: .62rem; }
+
+    /* Pagination */
+    .pagination .page-link { font-size: .72rem; padding: .3rem .55rem; }
+
+    /* Forms */
+    .form-control, .form-select { font-size: .875rem; padding: .5rem .8rem; }
+    .form-label { font-size: .78rem; }
+
+    /* Avatar */
+    .avatar-circle-lg { width: 68px; height: 68px; min-width: 68px; font-size: 1.6rem; border-width: 3px; }
+    .avatar-sm { width: 34px; height: 34px; min-width: 34px; font-size: .85rem; }
+
+    /* Profile hero */
+    .profile-hero { padding: 1rem; border-radius: 10px; }
+    .profile-hero h4, .profile-hero h5 { font-size: .95rem; }
+    .profile-hero p { font-size: .82rem; }
+
+    /* Chat bubbles */
+    .chat-bubble-mine, .chat-bubble-theirs { max-width: 90%; font-size: .82rem; padding: .5rem .8rem; }
+
+    /* Back button */
     .btn-back { font-size: .72rem; padding: .2rem .45rem; gap: .22rem; }
+
+    /* Alert */
+    .alert { font-size: .82rem; padding: .65rem .9rem; }
+
+    /* Hide helper */
+    .d-none-xs { display: none !important; }
+
+    /* Job/vacancy cards compact */
+    .job-card .card-body, .vacancy-card .card-body { padding: .85rem !important; }
+
+    /* Cred code */
+    .cred-code { font-size: .9rem; padding: .25rem .55rem; letter-spacing: 1px; }
+}
+
+/* ==============================================================
+   RESPONSIVE — EXTRA SMALL (≤400px)
+   ============================================================== */
+@media (max-width: 400px) {
+    .fe-content { padding: .6rem .5rem 2.5rem; }
+    #frontendNav { padding: 0 .6rem; }
+    .fe-brand-name { font-size: .9rem; }
+    .row.g-3 > [class*='col-sm-6'] .h2,
+    .row.g-3 > [class*='col-sm-6'] .h3 { font-size: 1.1rem; }
 }

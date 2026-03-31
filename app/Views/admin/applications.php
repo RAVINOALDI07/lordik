@@ -127,7 +127,7 @@ require_once BASE_PATH . '/app/Views/layouts/header.php';
 
 <div class="card shadow-sm border-0">
   <div class="card-body p-0">
-    <div class="table-responsive">
+    <div class="table-wrap">
       <table class="table table-hover align-middle mb-0">
         <thead class="table-light">
           <tr>

@@ -56,7 +56,7 @@ require_once BASE_PATH . '/app/Views/layouts/header.php';
                 <input type="text" name="search" class="form-control form-control-sm"
                        placeholder="Cari judul / perusahaan..." value="<?= e($filters['search']) ?>">
             </div>
-            <div class="col-md-3">
+            <div class="col-6 col-md-3">
                 <select name="status" class="form-select form-select-sm">
                     <option value="">Semua Status</option>
                     <?php foreach (['submitted','approved','rejected','closed'] as $s): ?>
@@ -72,7 +72,7 @@ require_once BASE_PATH . '/app/Views/layouts/header.php';
 
 <div class="card shadow-sm border-0">
     <div class="card-body p-0">
-        <div class="table-responsive">
+        <div class="table-wrap">
             <table class="table table-hover align-middle mb-0">
                 <thead class="table-light">
                     <tr>
