@@ -81,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $profile = AlumniModel::getProfile(currentUserId()); // reload
 $certs   = $profile ? AlumniModel::getCertificates($profile['id']) : [];
 
-$jurusanList = ['TKJ', 'RPL', 'MM', 'AKL', 'OTKP', 'BDP', 'Farmasi', 'Keperawatan', 'TKRO', 'TITL'];
+$jurusanList = ['RPL','DKV','AKL','MPK','BDP','LP3K','LPB','ULW'];
 
 $pageTitle = 'Profil Alumni — ' . APP_NAME;
 require_once BASE_PATH . '/app/Views/layouts/header.php';

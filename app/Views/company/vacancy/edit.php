@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-$jurusanList = ['TKJ', 'RPL', 'MM', 'AKL', 'OTKP', 'BDP', 'Farmasi', 'Keperawatan', 'TKRO', 'TITL', 'Semua Jurusan'];
+$jurusanList = ['RPL','DKV','AKL','MPK','BDP','LP3K','LPB','ULW', 'Semua Jurusan'];
 
 $pageTitle = 'Edit Lowongan — ' . APP_NAME;
 require_once BASE_PATH . '/app/Views/layouts/header.php';

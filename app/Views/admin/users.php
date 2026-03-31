@@ -15,7 +15,7 @@ if ($tab === 'excel_template') {
     if ($type === 'alumni') {
         $headers = ['username','email','full_name','nis','nisn','gender','jurusan','graduation_year'];
         $samples = [
-            ['budi.santoso','budi@example.com','Budi Santoso','1234','56789012','male','TKJ', date('Y')],
+            ['budi.santoso','budi@example.com','Budi Santoso','1234','56789012','male','RPL', date('Y')],
             ['siti.rahayu','siti@example.com','Siti Rahayu','1235','56789013','female','RPL', date('Y')],
         ];
         $sheetName = 'Template Alumni';
@@ -80,7 +80,7 @@ if ($tab === 'excel_template') {
         '4. Username tidak boleh mengandung spasi',
         '5. Email harus valid dan belum terdaftar di sistem',
         ($type === 'alumni') ? '6. Kolom gender diisi: male atau female' : '6. Kolom industry: contoh Manufaktur, Teknologi, Perdagangan, Jasa, dll',
-        ($type === 'alumni') ? '7. Kolom jurusan: TKJ, RPL, MM, AKL, OTKP, BDP, Farmasi, Keperawatan, TKRO, TITL' : '7. Kolom city: nama kota perusahaan',
+        ($type === 'alumni') ? '7. Kolom jurusan: RPL, DKV, AKL, MPK, BDP, LP3K, LPB, ULW' : '7. Kolom city: nama kota perusahaan',
         ($type === 'alumni') ? '8. Kolom graduation_year: 4 digit tahun, contoh ' . date('Y') : '',
         '',
         'Simpan file ini tetap dalam format .xls atau ekspor ke .csv sebelum diupload.',
@@ -370,7 +370,7 @@ $filters = ['role' => $_GET['role'] ?? '', 'search' => $_GET['search'] ?? ''];
 $page    = max(1, (int)($_GET['page'] ?? 1));
 $result  = AdminModel::listUsers($filters, PER_PAGE, ($page - 1) * PER_PAGE);
 $paging  = paginate($result['total'], $page);
-$jurusanList = ['TKJ','RPL','MM','AKL','OTKP','BDP','Farmasi','Keperawatan','TKRO','TITL'];
+$jurusanList = ['RPL','DKV','AKL','MPK','BDP','LP3K','LPB','ULW'];
 
 $pageTitle = 'Manajemen Pengguna — ' . APP_NAME;
 require_once BASE_PATH . '/app/Views/layouts/header.php';
@@ -700,12 +700,12 @@ function switchRole(role) {
                         <div class="alert alert-info border-info p-3 mb-2 small" style="background:#eff6ff">
                             <div class="fw-semibold mb-1"><i class="bi bi-mortarboard me-1"></i>Format untuk Akun Alumni:</div>
                             <code class="d-block mb-1">username,email,nama_lengkap,nis,nisn,gender,jurusan,angkatan</code>
-                            <div class="text-muted mt-1">Contoh: <code>budi.s,budi@mail.com,Budi Santoso,1001,9900001,male,TKJ,2024</code></div>
+                            <div class="text-muted mt-1">Contoh: <code>budi.s,budi@mail.com,Budi Santoso,1001,9900001,male,RPL,2024</code></div>
                         </div>
                         <div class="alert alert-warning border-warning p-2 small mb-0" style="background:#fffbeb">
                             <i class="bi bi-exclamation-triangle-fill me-1 text-warning"></i>
                             <strong>Pastikan akun yang dimasukkan benar-benar akun alumni.</strong>
-                            Kolom <code>jurusan</code> wajib diisi (TKJ, RPL, MM, AKL, OTKP, BDP, Farmasi, Keperawatan, TKRO, TITL)
+                            Kolom <code>jurusan</code> wajib diisi (RPL, DKV, AKL, MPK, BDP, LP3K, LPB, ULW)
                             dan kolom <code>angkatan</code> diisi dengan 4 digit tahun (contoh: 2024).
                             Jika gender dikosongkan, akan diset <em>male</em> secara default.
                         </div>
@@ -742,7 +742,7 @@ function switchRole(role) {
 
     var cfg = {
         alumni: {
-            placeholder: 'username,email,nama_lengkap,nis,nisn,gender,jurusan,angkatan\nbudi.s,budi@mail.com,Budi Santoso,1001,9900001,male,TKJ,2024\nsiti.r,siti@mail.com,Siti Rahayu,1002,9900002,female,RPL,2024'
+            placeholder: 'username,email,nama_lengkap,nis,nisn,gender,jurusan,angkatan\nbudi.s,budi@mail.com,Budi Santoso,1001,9900001,male,RPL,2024\nsiti.r,siti@mail.com,Siti Rahayu,1002,9900002,female,RPL,2024'
         },
         company: {
             placeholder: 'username,email,nama_perusahaan,industri,kota\ncv.maju,maju@mail.com,CV Maju Jaya,Manufaktur,Jakarta\npt.digital,digital@mail.com,PT Digital Nusantara,Teknologi,Surabaya'

@@ -56,7 +56,7 @@ class AdminModel extends BaseModel {
                 )->execute([
                     $userId, $nis, $nisn, $name,
                     $data['gender'] ?? 'male',
-                    sanitize($data['jurusan'] ?? 'TKJ'),
+                    sanitize($data['jurusan'] ?? 'RPL'),
                     (int)($data['graduation_year'] ?? date('Y')),
                 ]);
             } catch (PDOException $e) { /* skip if duplicate NIS/NISN */ }

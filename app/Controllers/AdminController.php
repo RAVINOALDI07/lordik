@@ -63,7 +63,7 @@ class AdminController
                     $rows[] = ['username' => $parts[0], 'email' => $parts[1],
                                'full_name' => $parts[2] ?? '', 'nis' => $parts[3] ?? '', 'nisn' => $parts[4] ?? '',
                                'role' => $importRole, 'gender' => 'male',
-                               'jurusan' => $_POST['default_jurusan'] ?? 'TKJ',
+                               'jurusan' => $_POST['default_jurusan'] ?? 'RPL',
                                'graduation_year' => $_POST['default_year'] ?? date('Y')];
                 }
             }

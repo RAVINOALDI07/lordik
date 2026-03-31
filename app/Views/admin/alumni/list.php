@@ -34,7 +34,7 @@ require_once BASE_PATH . '/app/Views/layouts/header.php';
             <div class="col-md-2">
                 <select name="jurusan" class="form-select form-select-sm">
                     <option value="">Jurusan</option>
-                    <?php foreach (['TKJ','RPL','MM','AKL','OTKP','BDP','Farmasi','Keperawatan','TKRO','TITL'] as $j): ?>
+                    <?php foreach (['RPL','DKV','AKL','MPK','BDP','LP3K','LPB','ULW'] as $j): ?>
                     <option value="<?= $j ?>" <?= $filters['jurusan'] === $j ? 'selected' : '' ?>><?= $j ?></option>
                     <?php endforeach; ?>
                 </select>

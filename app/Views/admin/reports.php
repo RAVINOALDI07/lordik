@@ -116,7 +116,7 @@ $compStmt->execute();
 $companyData = $compStmt->fetchAll();
 
 // Jurusan list for filter
-$jurusanList = ['TKJ','RPL','MM','AKL','OTKP','BDP','Farmasi','Keperawatan','TKRO','TITL'];
+$jurusanList = ['RPL','DKV','AKL','MPK','BDP','LP3K','LPB','ULW'];
 
 $pageTitle = 'Laporan & Statistik — ' . APP_NAME;
 require_once BASE_PATH . '/app/Views/layouts/header.php';

@@ -48,7 +48,7 @@ class AdminModule {
                     sanitize($data['nisn']),
                     sanitize($data['full_name']),
                     $data['gender'] ?? 'male',
-                    sanitize($data['jurusan'] ?? 'TKJ'),
+                    sanitize($data['jurusan'] ?? 'RPL'),
                     (int)($data['graduation_year'] ?? date('Y')),
                 ]);
             } catch (PDOException $e) { /* skip if duplicate NIS */ }
