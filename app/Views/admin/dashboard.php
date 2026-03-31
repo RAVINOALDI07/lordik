@@ -219,7 +219,7 @@ new Chart(document.getElementById('workStatusChart'), {
         labels: wsLabels,
         datasets: [{
             data: wsData,
-            backgroundColor: ['#22c55e','#ef4444','#3b82f6','#f59e0b'],
+            backgroundColor: ['#ef4444','#22c55e','#3b82f6','#f59e0b'],
             borderWidth: 2,
         }]
     },
