@@ -167,8 +167,7 @@ section{padding:5rem 0}
     <li><a href="#mitra">Mitra</a></li>
   </ul>
   <div class="d-flex gap-2">
-    <a href="<?= APP_URL ?>/auth/login.php" class="btn-lp-login">Masuk</a>
-    <a href="<?= APP_URL ?>/auth/login.php" class="btn-lp-cta">Daftar Gratis</a>
+    <a href="<?= APP_URL ?>/auth/login.php" class="btn-lp-cta">Masuk</a>
   </div>
 </nav>
 
