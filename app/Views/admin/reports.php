@@ -255,7 +255,7 @@ const wsData   = <?= json_encode(array_column($stats['work_status_breakdown'], '
 const wsLabels = <?= json_encode(array_map(fn($r) => ucwords(str_replace('_',' ',$r['work_status'])), $stats['work_status_breakdown'])) ?>;
 new Chart(document.getElementById('workStatusChart'), {
     type: 'doughnut',
-    data: { labels: wsLabels, datasets: [{ data: wsData, backgroundColor:['#22c55e','#ef4444','#3b82f6','#f59e0b'], borderWidth:2 }]},
+    data: { labels: wsLabels, datasets: [{ data: wsData, backgroundColor:['#ef4444','#22c55e','#3b82f6','#f59e0b'], borderWidth:2 }]},
     options: { plugins: { legend: { position:'bottom' } } }
 });
 const monthly = <?= json_encode($stats['monthly_applications']) ?>;
